@@ -61,7 +61,7 @@ public class MGLTask1Controller {
 		 * update games.jsp as well. 
 		 * SEE:  https://www.baeldung.com/spring-circular-view-path-error
 		 */
-		return new ModelAndView("games", "command", new Game());
+		return new ModelAndView("gamesPage", "command", new Game());
 	}
 
 	/**

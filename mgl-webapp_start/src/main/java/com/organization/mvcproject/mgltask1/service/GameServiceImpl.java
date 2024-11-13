@@ -10,7 +10,7 @@ import com.organization.mvcproject.mgltask1.model.Game;
 //TODO 1.0  follow java class naming, improve class name
 //TODO 1.0  "javaGameService" service reference name is not necessary, remove it.
 @Service("javaGameService")
-public class Game_Service_Impl implements GameService {
+public class GameServiceImpl implements GameService {
 
 	/**
 	 * TODO 2.0 The class that interacts with persistent data is called a Data Access Object(DAO)
@@ -30,19 +30,19 @@ public class Game_Service_Impl implements GameService {
 	private static List<Game> populateGames() {
 
 		Game game1 = new Game();
-		game1.setGame_id(++gameId);
-		game1.setGame_genre("Sport");
-		game1.setGame_name("Rocket League");
+		game1.setGameId(++gameId);
+		game1.setGameGenre("Sport");
+		game1.setGameName("Rocket League");
 
 		Game game2 = new Game();
-		game2.setGame_id(++gameId);
-		game2.setGame_genre("Shooter");
-		game2.setGame_name("Halo 3");
+		game2.setGameId(++gameId);
+		game2.setGameGenre("Shooter");
+		game2.setGameName("Halo 3");
 
 		Game game3 = new Game();
-		game3.setGame_id(++gameId);
-		game3.setGame_genre("MMORPG");
-		game3.setGame_name("Runescape");
+		game3.setGameId(++gameId);
+		game3.setGameGenre("MMORPG");
+		game3.setGameName("Runescape");
 
 		games.add(game1);
 		games.add(game2);
@@ -58,7 +58,7 @@ public class Game_Service_Impl implements GameService {
 
 	@Override
 	public Game saveGame(Game game) {
-		game.setGame_id(++gameId);
+		game.setGameId(++gameId);
 		games.add(game);
 		return game;
 	}
@@ -74,7 +74,7 @@ public class Game_Service_Impl implements GameService {
 	}
 
 	public static void setGameId(Long gameId) {
-		Game_Service_Impl.gameId = gameId;
+		GameServiceImpl.gameId = gameId;
 	}
 
 	public static Long getCompanyId() {
@@ -82,7 +82,7 @@ public class Game_Service_Impl implements GameService {
 	}
 
 	public static void setCompanyId(Long companyId) {
-		Game_Service_Impl.companyId = companyId;
+		GameServiceImpl.companyId = companyId;
 	}
 
 	public static List<Game> getGames() {
@@ -90,7 +90,7 @@ public class Game_Service_Impl implements GameService {
 	}
 
 	public static void setGames(ArrayList<Game> games) {
-		Game_Service_Impl.games = games;
+		GameServiceImpl.games = games;
 	}
 
 }
