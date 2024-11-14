@@ -25,8 +25,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.organization.mvcproject.mgltask1.model.Game;
+import com.organization.mvcproject.service.GameService;
 import com.organization.mvcproject.config.MvcConfiguration;
+import com.organization.mvcproject.model.Game;
 
 @RunWith(JUnitPlatform.class)
 @ExtendWith(SpringExtension.class)
@@ -44,8 +45,8 @@ class GameServiceImplTest {
 	private  static final String TEST_GENRE = "Test Genre";
 	private static Game createGame(Integer number) {
 		Game game = new Game();
-		 game.setGameName("Testing Game Name " + String.valueOf(number));
-		 game.setGameGenre(TEST_GENRE);
+		 game.setName("Testing Game Name " + String.valueOf(number));
+		 game.setGenre(TEST_GENRE);
 		 return game;
 	}
 	
@@ -56,10 +57,10 @@ class GameServiceImplTest {
 	void saveGameServiceSavesAndUpdatesGame() {
 		if(gamesToRemoveAfterTest.isEmpty()) {
 			Game game = gameServiceUnderTest.saveGame(testGame);
-			Assertions.assertNotNull(game.getGameId());
+			Assertions.assertNotNull(game.getId());
 			
 			//updates 
-			game.setGameName("Testing Game Name Updated" );
+			game.setName("Testing Game Name Updated" );
 			testGame = gameServiceUnderTest.saveGame(game);
 			assertEquals(game, testGame);	
 			gamesToRemoveAfterTest.add(testGame);

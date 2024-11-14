@@ -1,10 +1,9 @@
-package com.organization.mvcproject.mgltask1.service;
+package com.organization.mvcproject.service;
 
 import java.util.List;
 
-import com.organization.mvcproject.mgltask1.model.Game;
+import com.organization.mvcproject.model.Game;
 
-//TODO 1.0  follow java interface naming conventions, improve interface name --
 public interface GameService {
 
 	List<Game> retrieveAllGames();
